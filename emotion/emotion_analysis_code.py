@@ -15,7 +15,7 @@ import joblib
 # tweet = 'Layin n bed with a headache  ughhhh...waitin on your call...'
 
 class emotion_analysis_code():
-
+    
     lem = WordNetLemmatizer()
 
     def cleaning(self, text):
@@ -59,13 +59,17 @@ class emotion_analysis_code():
 
     def predict_emotion(self, tweet):
 
+        self.models_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'models')
+
         # tweet_in_pandas = pd.Series(' '.join(self.cleaning(tweet)))
         tweet_in_pandas = tweet
 
-        vectorizer = joblib.load(r'emotion\models\tfidf_vectorizer.pkl')
+        tfidf_vectorizer_path = os.path.join(self.models_dir, 'tfidf_vectorizer.pkl')
+        vectorizer = joblib.load(tfidf_vectorizer_path)
         new_tweet_features = vectorizer.transform([tweet_in_pandas])
 
-        svm_model = joblib.load(r'emotion\models\svm_model.pkl')
+        svm_model_path = os.path.join(self.models_dir, 'svm_model.pkl')
+        svm_model = joblib.load(svm_model_path)
 
         predicted_sentiment = svm_model.predict(new_tweet_features)
 
