@@ -8,3 +8,4 @@ class SentimentConfig(AppConfig):
     def ready(self):
         # Download WordNet resource
         nltk.download('wordnet')
+        nltk.download('punkt')
