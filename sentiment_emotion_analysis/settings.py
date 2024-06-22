@@ -25,7 +25,7 @@ SECRET_KEY = 'g&x!0fjh8c8)e_-z@gs1^lbngvqwk2(o3s(5zg!o&woxdsu_un'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['senti-4az0.onrender.com']
+ALLOWED_HOSTS = ['senti-o4th.onrender.com']
 # ALLOWED_HOSTS = []
 
 
